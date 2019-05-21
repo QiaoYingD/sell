@@ -1,11 +1,16 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
-    register-with-eureka: false
-    fetch-registry: false
+    # eureka高可用，多个用户相互注册，port:8761 对应8762,8763  port:8762 对应8761,8763   port:8763 对应 8761,8762
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: false  #自身为注册中心，自身不注册到服务中心
+  server:
+    enable-self-preservation:  false  #  开发环境关闭自我保护模式做服务时不会报错，生成环境必需打开
+
 spring:
   application:
     name: eureka
 server:
   port: 8761
+
+# eureka高可用，多个用户相互注册，port:8761 对应8762,8763  port:8762 对应8761,8763   port:8763 对应 8761,8762
