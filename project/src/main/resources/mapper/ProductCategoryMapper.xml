@@ -127,10 +127,13 @@
     </delete>
 
 
-    <select id="queryByCategoryType" resultType="ProductCategoryModel">
+    <select id="queryByCategoryType" resultMap="BaseResultMap">
 
-		select * from product_category
-        WHERE category_type in (1,2)
+		select <include refid="Columns"/> from product_category
+        WHERE category_type in
+        <foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
 
 	</select>
 

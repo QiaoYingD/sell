@@ -19,7 +19,7 @@ public class ProductCategoryModel {
 
     private String categoryName;
 
-    private Integer cateGoryType;
+    private Integer categoryType;
 
     private String createTime;
 

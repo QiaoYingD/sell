@@ -1,6 +1,7 @@
 package com.imooc.project.service;
 
 import com.imooc.project.model.ProductCategoryModel;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -28,6 +29,6 @@ public interface ProductCategoryService {
     // 查询单个对象
     public ProductCategoryModel getModel(ProductCategoryModel productCategory);
 
-    List<ProductCategoryModel> queryByCategoryType();
+    List<ProductCategoryModel> queryByCategoryType(List<Integer> categoryTypeList);
 
 }

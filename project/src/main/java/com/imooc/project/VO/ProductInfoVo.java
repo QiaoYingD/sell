@@ -1,19 +1,21 @@
-package com.imooc.project.vo;
+package com.imooc.project.VO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+
+import java.math.BigDecimal;
 
 @Data
 public class ProductInfoVo {
 
     @JsonProperty("id")
-    private Integer productId;
+    private String productId;
 
     @JsonProperty("name")
     private String productName;
 
     @JsonProperty("price")
-    private String productPrice;
+    private BigDecimal productPrice;
 
     @JsonProperty("description")
     private String productDescription;
