@@ -52,7 +52,7 @@
 			<if test="bean.productIcon !=null and bean.productIcon != ''">
 				and product_icon = #{bean.productIcon}
 			</if>
-			<if test="bean.productStatus !=null and bean.productStatus != ''">
+			<if test="bean.productStatus !=null ">
 				and product_status = #{bean.productStatus}
 			</if>
 			<if test="bean.categoryType !=null and bean.categoryType != ''">

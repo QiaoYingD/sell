@@ -46,7 +46,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     }
 
     @Override
-    public List<ProductCategoryModel> queryByCategoryType() {
-        return productCategoryMapper.queryByCategoryType();
+    public List<ProductCategoryModel> queryByCategoryType(List<Integer> categoryTypeList) {
+        return productCategoryMapper.queryByCategoryType(categoryTypeList);
     }
 }

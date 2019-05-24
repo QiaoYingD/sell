@@ -1,4 +1,4 @@
-package com.imooc.project.vo;
+package com.imooc.project.VO;
 
 import lombok.Data;
 

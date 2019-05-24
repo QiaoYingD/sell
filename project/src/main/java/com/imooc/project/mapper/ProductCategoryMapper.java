@@ -28,6 +28,6 @@ public interface ProductCategoryMapper {
     // 查询单个对象
     public ProductCategoryModel getModel(ProductCategoryModel productCategory);
 
-    List<ProductCategoryModel> queryByCategoryType();
+    List<ProductCategoryModel> queryByCategoryType(List<Integer> categoryTypeList);
 
 }
