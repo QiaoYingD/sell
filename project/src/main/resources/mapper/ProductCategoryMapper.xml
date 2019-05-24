@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--     生成表名是:product_category  生成时间是  2019-05-21 22:33:40  -->
+<mapper namespace="com.imooc.project.mapper.ProductCategoryMapper">
+
+    <resultMap type="ProductCategoryModel" id="BaseResultMap">
+        <!--  数据库列的注释是：  . 创建时间: 2019-05-21 22:33:40  -->
+        <id property="categoryId" column="category_id"/>
+        <!--  数据库列的注释是： 类目名字 . 创建时间: 2019-05-21 22:33:40  -->
+        <result property="categoryName" column="category_name"/>
+        <!--  数据库列的注释是： 类目编号 . 创建时间: 2019-05-21 22:33:40  -->
+        <result property="categoryType" column="category_type"/>
+        <!--  数据库列的注释是： 创建时间 . 创建时间: 2019-05-21 22:33:40  -->
+        <result property="createTime" column="create_time"/>
+        <!--  数据库列的注释是： 修改时间 . 创建时间: 2019-05-21 22:33:40  -->
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <!-- 编辑表中所有的列 id 为 Columns -->
+    <sql id="Columns">category_id,category_name,category_type,create_time,update_time</sql>
+
+
+    <!--查询列表-->
+    <select id="getList" resultMap="BaseResultMap" parameterType="map">
+        select <include refid="Columns"></include> from product_category
+        <where>
+            <if test="bean.categoryId !=null and bean.categoryId != ''">
+                and category_id = #{bean.categoryId}
+            </if>
+            <if test="bean.categoryName !=null and bean.categoryName != ''">
+                and category_name = #{bean.categoryName}
+            </if>
+            <if test="bean.categoryType !=null and bean.categoryType != ''">
+                and category_type = #{bean.categoryType}
+            </if>
+            <if test="bean.createTime !=null and bean.createTime != ''">
+                and create_time = #{bean.createTime}
+            </if>
+            <if test="bean.updateTime !=null and bean.updateTime != ''">
+                and update_time = #{bean.updateTime}
+            </if>
+        </where>
+
+    </select>
+
+    <!--查询列表总数-->
+    <select id="getListCount" resultType="int" parameterType="ProductCategoryModel">
+        select count(1) from product_category
+        <where>
+            <if test="categoryId !=null and categoryId != ''">
+                and category_id = #{categoryId}
+            </if>
+            <if test="categoryName !=null and categoryName != ''">
+                and category_name = #{categoryName}
+            </if>
+            <if test="categoryType !=null and categoryType != ''">
+                and category_type = #{categoryType}
+            </if>
+            <if test="createTime !=null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime !=null and updateTime != ''">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <!--查询单个对象-->
+    <select id="getModel" resultMap="BaseResultMap" parameterType="ProductCategoryModel">
+        select <include refid="Columns"></include> from product_category
+        <where>
+            <if test="categoryId !=null and categoryId != '' ">
+                and category_id = #{categoryId}
+            </if>
+            <if test="categoryName !=null and categoryName != '' ">
+                and category_name = #{categoryName}
+            </if>
+            <if test="categoryType !=null and categoryType != '' ">
+                and category_type = #{categoryType}
+            </if>
+            <if test="createTime !=null and createTime != '' ">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime !=null and updateTime != '' ">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <!-- 增加方法-->
+    <insert id="insert" parameterType="ProductCategoryModel" useGeneratedKeys="true" keyProperty="id">
+		insert into product_category (category_id,category_name,category_type,create_time,update_time) values (#{categoryId},#{categoryName},#{categoryType},#{createTime},#{updateTime})
+	</insert>
+
+    <!-- 更新方法-->
+    <update id="update" parameterType="ProductCategoryModel">
+        update product_category
+        <set>
+            <if test="categoryName !=null and categoryName != ''">category_name = #{categoryName},</if>
+            <if test="categoryType !=null and categoryType != ''">category_type = #{categoryType},</if>
+            <if test="createTime !=null and createTime != ''">create_time = #{createTime},</if>
+            <if test="updateTime !=null and updateTime != ''">update_time = #{updateTime},</if>
+        </set>
+        where category_id = #{category_id}
+    </update>
+
+    <!-- 删除方法-->
+    <delete id="delete" parameterType="ProductCategoryModel">
+        delete from product_category
+        <where>
+            <if test="categoryId !=null and categoryId != ''">
+                and category_id = #{categoryId}
+            </if>
+            <if test="categoryName !=null and categoryName != ''">
+                and category_name = #{categoryName}
+            </if>
+            <if test="categoryType !=null and categoryType != ''">
+                and category_type = #{categoryType}
+            </if>
+            <if test="createTime !=null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime !=null and updateTime != ''">
+                and update_time = #{updateTime}
+            </if>
+        </where>
+    </delete>
+
+
+    <select id="queryByCategoryType" resultType="ProductCategoryModel">
+
+		select * from product_category
+        WHERE category_type in (1,2)
+
+	</select>
+
+
+</mapper>

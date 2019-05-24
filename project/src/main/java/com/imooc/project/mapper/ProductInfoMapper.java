@@ -9,6 +9,7 @@ import java.util.Map;
 public interface ProductInfoMapper {
 
 
+
     // 列表查询方法
     // map中只有2个对象：实体类bean，分页page
     public List<ProductInfoModel> getList(Map<String, Object> map);
