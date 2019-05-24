@@ -16,7 +16,7 @@
     <modules>
         <module>eureka</module>
         <module>project</module>
-
+        <module>order</module>
     </modules>
 
     <name>sell</name>
