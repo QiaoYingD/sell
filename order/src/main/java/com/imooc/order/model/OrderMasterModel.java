@@ -25,17 +25,17 @@ public class OrderMasterModel {
     /**
      * 买家手机号
      */
-    private String buyuePhone;
+    private String buyerPhone;
 
     /**
      * 买家地址
      */
-    private String buyueAddress;
+    private String buyerAddress;
 
     /**
      * 买家微信Openid
      */
-    private String buyueOpenid;
+    private String buyerOpenid;
 
     /**
      * 订单总金额

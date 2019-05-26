@@ -1,5 +1,4 @@
-package com.imooc.project.utlis;
-
+package com.imooc.order.utils;
 
 import com.imooc.order.VO.ResultVO;
 
@@ -12,4 +11,6 @@ public class ResultVOUtil {
         resultVO.setData(object);
         return resultVO;
     }
+
+
 }

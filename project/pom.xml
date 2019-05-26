@@ -67,6 +67,12 @@
             <artifactId>logback</artifactId>
             <version>0.5</version>
         </dependency>
+        <dependency>
+            <groupId>com.imooc</groupId>
+            <artifactId>order</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 

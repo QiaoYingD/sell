@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--     生成表名是:order_master  生成时间是  2019-05-21 22:33:40  -->
+<mapper namespace="com.imooc.order.mapper.OrderMasterMapper">
+
+	<resultMap type="OrderMasterModel" id="BaseResultMap">
+		<!--  数据库列的注释是：  . 创建时间: 2019-05-21 22:33:40  -->
+		<id property="orderId" column="order_id" />
+		<!--  数据库列的注释是： 买家名字 . 创建时间: 2019-05-21 22:33:40  -->
+		<result property="buyerName" column="buyer_name" />
+		<!--  数据库列的注释是： 买家电话 . 创建时间: 2019-05-21 22:33:40  -->
+		<result property="buyerPhone" column="buyer_phone" />
+		<!--  数据库列的注释是： 买家地址 . 创建时间: 2019-05-21 22:33:40  -->
+		<result property="buyerAddress" column="buyer_address" />
+		<!--  数据库列的注释是： 买家微信openid . 创建时间: 2019-05-21 22:33:40  -->
+		<result property="buyerOpenid" column="buyer_openid" />
+		<!--  数据库列的注释是： 订单总金额 . 创建时间: 2019-05-21 22:33:40  -->
+		<result property="orderAmount" column="order_amount" />
+		<!--  数据库列的注释是： 订单状态, 默认为新下单 . 创建时间: 2019-05-21 22:33:40  -->
+		<result property="orderStatus" column="order_status" />
+		<!--  数据库列的注释是： 支付状态, 默认未支付 . 创建时间: 2019-05-21 22:33:40  -->
+		<result property="payStatus" column="pay_status" />
+		<!--  数据库列的注释是： 创建时间 . 创建时间: 2019-05-21 22:33:40  -->
+		<result property="createTime" column="create_time" />
+		<!--  数据库列的注释是： 修改时间 . 创建时间: 2019-05-21 22:33:40  -->
+		<result property="updateTime" column="update_time" />
+	</resultMap>
+
+	<!-- 编辑表中所有的列 id 为 Columns -->
+	<sql id="Columns">order_id,buyer_name,buyer_phone,buyer_address,buyer_openid,order_amount,order_status,pay_status,create_time,update_time</sql>
+
+
+	<!--查询列表-->
+	<select id="getList" resultMap="BaseResultMap" parameterType="map">
+		select <include refid="Columns"></include> from order_master 
+		<where>
+			<if test="bean.orderId !=null and bean.orderId != ''">
+				and order_id = #{bean.orderId}
+			</if>
+			<if test="bean.buyerName !=null and bean.buyerName != ''">
+				and buyer_name = #{bean.buyerName}
+			</if>
+			<if test="bean.buyerPhone !=null and bean.buyerPhone != ''">
+				and buyer_phone = #{bean.buyerPhone}
+			</if>
+			<if test="bean.buyerAddress !=null and bean.buyerAddress != ''">
+				and buyer_address = #{bean.buyerAddress}
+			</if>
+			<if test="bean.buyerOpenid !=null and bean.buyerOpenid != ''">
+				and buyer_openid = #{bean.buyerOpenid}
+			</if>
+			<if test="bean.orderAmount !=null and bean.orderAmount != ''">
+				and order_amount = #{bean.orderAmount}
+			</if>
+			<if test="bean.orderStatus !=null and bean.orderStatus != ''">
+				and order_status = #{bean.orderStatus}
+			</if>
+			<if test="bean.payStatus !=null and bean.payStatus != ''">
+				and pay_status = #{bean.payStatus}
+			</if>
+			<if test="bean.createTime !=null and bean.createTime != ''">
+				and create_time = #{bean.createTime}
+			</if>
+			<if test="bean.updateTime !=null and bean.updateTime != ''">
+				and update_time = #{bean.updateTime}
+			</if>
+		</where>
+	</select>
+
+	<!--查询列表总数-->
+	<select id="getListCount" resultType="int" parameterType="OrderMasterModel">
+		select count(1) from order_master 
+		<where>
+			<if test="orderId !=null and orderId != ''">
+				and order_id = #{orderId}
+			</if>
+			<if test="buyerName !=null and buyerName != ''">
+				and buyer_name = #{buyerName}
+			</if>
+			<if test="buyerPhone !=null and buyerPhone != ''">
+				and buyer_phone = #{buyerPhone}
+			</if>
+			<if test="buyerAddress !=null and buyerAddress != ''">
+				and buyer_address = #{buyerAddress}
+			</if>
+			<if test="buyerOpenid !=null and buyerOpenid != ''">
+				and buyer_openid = #{buyerOpenid}
+			</if>
+			<if test="orderAmount !=null and orderAmount != ''">
+				and order_amount = #{orderAmount}
+			</if>
+			<if test="orderStatus !=null and orderStatus != ''">
+				and order_status = #{orderStatus}
+			</if>
+			<if test="payStatus !=null and payStatus != ''">
+				and pay_status = #{payStatus}
+			</if>
+			<if test="createTime !=null and createTime != ''">
+				and create_time = #{createTime}
+			</if>
+			<if test="updateTime !=null and updateTime != ''">
+				and update_time = #{updateTime}
+			</if>
+		</where>
+	</select>
+
+	<!--查询单个对象-->
+	<select id="getModel" resultMap="BaseResultMap" parameterType="OrderMasterModel">
+		select <include refid="Columns"></include> from order_master 
+		<where>
+			<if test="orderId !=null and orderId != '' ">
+				 and order_id = #{orderId}
+			</if>
+			<if test="buyerName !=null and buyerName != '' ">
+				 and buyer_name = #{buyerName}
+			</if>
+			<if test="buyerPhone !=null and buyerPhone != '' ">
+				 and buyer_phone = #{buyerPhone}
+			</if>
+			<if test="buyerAddress !=null and buyerAddress != '' ">
+				 and buyer_address = #{buyerAddress}
+			</if>
+			<if test="buyerOpenid !=null and buyerOpenid != '' ">
+				 and buyer_openid = #{buyerOpenid}
+			</if>
+			<if test="orderAmount !=null and orderAmount != '' ">
+				 and order_amount = #{orderAmount}
+			</if>
+			<if test="orderStatus !=null and orderStatus != '' ">
+				 and order_status = #{orderStatus}
+			</if>
+			<if test="payStatus !=null and payStatus != '' ">
+				 and pay_status = #{payStatus}
+			</if>
+			<if test="createTime !=null and createTime != '' ">
+				 and create_time = #{createTime}
+			</if>
+			<if test="updateTime !=null and updateTime != '' ">
+				 and update_time = #{updateTime}
+			</if>
+		</where>
+	</select>
+
+	<!-- 增加方法-->
+	<insert id="insert" parameterType="OrderMasterModel" useGeneratedKeys="true" keyProperty="id">
+		insert into order_master (order_id,buyer_name,buyer_phone,buyer_address,buyer_openid,order_amount,order_status,pay_status,create_time,update_time) values (#{orderId},#{buyerName},#{buyerPhone},#{buyerAddress},#{buyerOpenid},#{orderAmount},#{orderStatus},#{payStatus},#{createTime},#{updateTime})
+	</insert>
+
+	<!-- 更新方法-->
+	<update id="update" parameterType="OrderMasterModel">
+		update order_master 
+		<set>
+			<if test="buyerName !=null and buyerName != ''">buyer_name = #{buyerName},</if>
+			<if test="buyerPhone !=null and buyerPhone != ''">buyer_phone = #{buyerPhone},</if>
+			<if test="buyerAddress !=null and buyerAddress != ''">buyer_address = #{buyerAddress},</if>
+			<if test="buyerOpenid !=null and buyerOpenid != ''">buyer_openid = #{buyerOpenid},</if>
+			<if test="orderAmount !=null and orderAmount != ''">order_amount = #{orderAmount},</if>
+			<if test="orderStatus !=null and orderStatus != ''">order_status = #{orderStatus},</if>
+			<if test="payStatus !=null and payStatus != ''">pay_status = #{payStatus},</if>
+			<if test="createTime !=null and createTime != ''">create_time = #{createTime},</if>
+			<if test="updateTime !=null and updateTime != ''">update_time = #{updateTime},</if>
+		</set>
+		where order_id = #{order_id}
+	</update>
+
+	<!-- 删除方法-->
+	<delete id="delete" parameterType="OrderMasterModel">
+		delete from order_master
+		<where>
+			<if test="orderId !=null and orderId != ''">
+				and order_id = #{orderId}
+			</if>
+			<if test="buyerName !=null and buyerName != ''">
+				and buyer_name = #{buyerName}
+			</if>
+			<if test="buyerPhone !=null and buyerPhone != ''">
+				and buyer_phone = #{buyerPhone}
+			</if>
+			<if test="buyerAddress !=null and buyerAddress != ''">
+				and buyer_address = #{buyerAddress}
+			</if>
+			<if test="buyerOpenid !=null and buyerOpenid != ''">
+				and buyer_openid = #{buyerOpenid}
+			</if>
+			<if test="orderAmount !=null and orderAmount != ''">
+				and order_amount = #{orderAmount}
+			</if>
+			<if test="orderStatus !=null and orderStatus != ''">
+				and order_status = #{orderStatus}
+			</if>
+			<if test="payStatus !=null and payStatus != ''">
+				and pay_status = #{payStatus}
+			</if>
+			<if test="createTime !=null and createTime != ''">
+				and create_time = #{createTime}
+			</if>
+			<if test="updateTime !=null and updateTime != ''">
+				and update_time = #{updateTime}
+			</if>
+		</where>
+	</delete>
+
+</mapper>
