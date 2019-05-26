@@ -5,10 +5,11 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 @Data
 @Entity
-@Table(name = "order_dateil")
+@Table(name = "order_detail")
 public class OrderDetailModel {
 
     /**
@@ -35,7 +36,7 @@ public class OrderDetailModel {
     /**
      * 商品单价
      */
-    private String productPrice;
+    private BigDecimal productPrice;
 
     /**
      * 商品数量
