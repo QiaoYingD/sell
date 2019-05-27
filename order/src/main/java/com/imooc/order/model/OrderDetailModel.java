@@ -41,7 +41,7 @@ public class OrderDetailModel {
     /**
      * 商品数量
      */
-    private String productQuantity;
+    private Integer productQuantity;
 
     /**
      * 商品图片

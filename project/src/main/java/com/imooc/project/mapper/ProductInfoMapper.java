@@ -29,6 +29,9 @@ public interface ProductInfoMapper {
     // 查询单个对象
     public ProductInfoModel getModel(ProductInfoModel productInfo);
 
+    //列表查询方法
+    List<ProductInfoModel> queryByProductId(List<String> productId);
+
 
 
 }
