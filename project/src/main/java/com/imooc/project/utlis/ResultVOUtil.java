@@ -1,7 +1,7 @@
 package com.imooc.project.utlis;
 
 
-import com.imooc.order.VO.ResultVO;
+import com.imooc.project.VO.ResultVO;
 
 public class ResultVOUtil {
 

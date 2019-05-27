@@ -1,5 +1,6 @@
 package com.imooc.project.service;
 
+import com.imooc.project.DTO.CartDTO;
 import com.imooc.project.model.ProductInfoModel;
 
 import java.util.List;
@@ -25,6 +26,15 @@ public interface ProductService {
 
     // 查询单个对象
     public ProductInfoModel getModel(ProductInfoModel productInfo);
+
+    //列表查询方法
+    List<ProductInfoModel> queryByProductId(List<String> productId);
+
+    /**
+     *  扣库存
+     * @param cartDTOS
+     */
+    void decreaseStock(List<CartDTO> cartDTOS);
 
 
 

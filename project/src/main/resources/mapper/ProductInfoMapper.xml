@@ -135,15 +135,13 @@
 			<if test="createTime !=null and createTime != '' ">
 				 and create_time = #{createTime}
 			</if>
-			<if test="updateTime !=null and updateTime != '' ">
-				 and update_time = #{updateTime}
-			</if>
+
 		</where>
 	</select>
 
 	<!-- 增加方法-->
 	<insert id="insert" parameterType="ProductInfoModel" useGeneratedKeys="true" keyProperty="id">
-		insert into product_info (product_id,product_name,product_price,product_stock,product_description,product_icon,product_status,category_type,create_time,update_time) values (#{productId},#{productName},#{productPrice},#{productStock},#{productDescription},#{productIcon},#{productStatus},#{categoryType},#{createTime},#{updateTime})
+		insert into product_info (product_id,product_name,product_price,product_stock,product_description,product_icon,product_status,category_type,create_time) values (#{productId},#{productName},#{productPrice},#{productStock},#{productDescription},#{productIcon},#{productStatus},#{categoryType},#{createTime})
 	</insert>
 
 	<!-- 更新方法-->
@@ -158,9 +156,8 @@
 			<if test="productStatus !=null and productStatus != ''">product_status = #{productStatus},</if>
 			<if test="categoryType !=null and categoryType != ''">category_type = #{categoryType},</if>
 			<if test="createTime !=null and createTime != ''">create_time = #{createTime},</if>
-			<if test="updateTime !=null and updateTime != ''">update_time = #{updateTime},</if>
 		</set>
-		where product_id = #{product_id}
+		where product_id = #{productId}
 	</update>
 
 	<!-- 删除方法-->
@@ -194,10 +191,21 @@
 			<if test="createTime !=null and createTime != ''">
 				and create_time = #{createTime}
 			</if>
-			<if test="updateTime !=null and updateTime != ''">
-				and update_time = #{updateTime}
-			</if>
+
 		</where>
 	</delete>
+
+
+	<select id="queryByProductId" resultMap="BaseResultMap">
+
+		select <include refid="Columns"/> from product_info
+		WHERE product_ID in
+		<foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+
+	</select>
+
+
 
 </mapper>

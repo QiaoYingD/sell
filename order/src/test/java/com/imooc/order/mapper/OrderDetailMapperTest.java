@@ -28,7 +28,7 @@ public class OrderDetailMapperTest extends OrderApplicationTests {
         orderDetailModel.setProductId("1");
         orderDetailModel.setProductName("1");
         orderDetailModel.setProductPrice(new BigDecimal(1));
-        orderDetailModel.setProductQuantity("1");
+        orderDetailModel.setProductQuantity(1);
         orderDetailModel.setProductIcon("1.com");
         orderDetailModel.setCreateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         orderDetailMapper.save(orderDetailModel);

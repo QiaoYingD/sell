@@ -1,7 +1,9 @@
 package com.imooc.project.controller;
 
+import com.imooc.project.DTO.CartDTO;
 import com.imooc.project.VO.ResultVO;
 import com.imooc.project.enums.ProductStatusEnum;
+import com.imooc.project.execption.ProductExecption;
 import com.imooc.project.model.ProductCategoryModel;
 import com.imooc.project.model.ProductInfoModel;
 import com.imooc.project.service.ProductCategoryService;
@@ -12,9 +14,7 @@ import com.imooc.project.utlis.ResultVOUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -76,5 +76,22 @@ public class ProductController {
         return ResultVOUtil.success(productCategoryVos);
     }
 
+    /**
+     * 获取商品列表（给订单服务用）
+     *
+     * @param productIdList
+     * @return
+     */
+    @PostMapping("/listForOrder")
+    public List<ProductInfoModel> listForOrder(@RequestBody List<String> productIdList){
+        return productService.queryByProductId(productIdList);
+    }
 
+    /**
+     * 扣库存（给订单服务用）
+     */
+    @PostMapping("/decreaseStock")
+    public void decreaseStock(@RequestBody List<CartDTO> cartDTOList){
+        productService.decreaseStock(cartDTOList);
+    }
 }

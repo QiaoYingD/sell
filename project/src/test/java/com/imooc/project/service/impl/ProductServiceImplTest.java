@@ -1,7 +1,9 @@
 package com.imooc.project.service.impl;
 
+import com.imooc.project.DTO.CartDTO;
 import com.imooc.project.mapper.ProductInfoMapper;
 import com.imooc.project.model.ProductInfoModel;
+import com.imooc.project.service.ProductService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +23,9 @@ public class ProductServiceImplTest {
 
     @Autowired
     private ProductInfoMapper productInfoMapper;
+
+    @Autowired
+    private ProductService productService;
 
     @Test
     public void getList() {
@@ -49,6 +55,10 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void getModel() {
+    public void decreaseStock() {
+        CartDTO cartDTO = new CartDTO();
+        cartDTO.setProductId("157875196366160022");
+        cartDTO.setProductQuantity(1);
+        productService.decreaseStock(Arrays.asList(cartDTO));
     }
 }
