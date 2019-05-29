@@ -1,9 +1,27 @@
 spring:
   application:
     name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/QiaoYingD/config-repo
+          username: 1974218313@qq.com
+          password: q.13949162154
+  rabbitmq:
+    host: 192.168.42.131
+    port: 5672
+    username: guest
+    password: guest
+#config高可用，启动多个config，注册时会随机拉取一个服务
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 server:
   port: 8092
+management:
+  endpoints:
+    web:
+      expose: "*"
+
